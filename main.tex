@@ -1,0 +1,440 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MCM/ICM LaTeX Template (Enhanced)  %%
+%% 2026 MCM/ICM                        %%
+%% Full 3-level headings + real English content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+
+% ---------- Page & Font ----------
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath} % must come after amsXXX
+
+% ---------- Figures / Tables ----------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{subcaption}
+
+% ---------- Lists ----------
+\usepackage{enumitem}
+
+% ---------- Citations ----------
+\usepackage[numbers]{natbib}
+
+% ---------- Colors / Hyperlinks ----------
+\usepackage{xcolor}
+\definecolor{MyBlue}{RGB}{0,72,153}
+\definecolor{MyRed}{RGB}{150,0,0}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=MyBlue, urlcolor=MyRed, citecolor=MyBlue}
+
+
+
+% ---------- Header / Footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Team \Team}
+\rhead{Page \thepage}
+\cfoot{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Replace ABCDEF in the next line with your chosen problem
+% and replace 1111111 with your Team Control Number
+\newcommand{\Problem}{ABCDEF}
+\newcommand{\Team}{1111111}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---------- Theorem-like environments ----------
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+% ---------- Handy macros ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\graphicspath{{.}{figures/}}  % put images in ./figures or current dir
+\DeclareGraphicsExtensions{.pdf,.jpg,.jpeg,.png}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              SUMMARY SHEET
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+  \parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \textcolor{red}{\Problem}\end{center}}
+  & \parbox[t]{0.3\linewidth}{\begin{center}\textbf{2026\\ MCM/ICM\\ Summary Sheet}\end{center}}
+  & \parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \textcolor{red}{\Team}\end{center}}\\
+  \hline
+\end{tabular}}
+
+
+\begin{center}
+{\Large\textbf{Put your own title HERE}}\\
+\vspace{0.4em}
+\textbf{Summary}
+\end{center}
+
+We develop a two-stage framework that links prediction with decision-making under practical constraints. In Stage I,
+we construct a parsimonious predictive model $\hat{y}=f(\vect{x};\theta)$ that maps scenario features to the target quantity of interest.
+We calibrate parameters using least squares / maximum likelihood and validate performance via a hold-out test and stress scenarios.
+In Stage II, we design a constrained optimization that selects an actionable policy $\vect{d}$ to maximize expected utility while respecting
+budget, feasibility, and fairness constraints.
+Across our benchmark scenarios, the proposed policy improves the primary score by 12.4\% compared with a baseline heuristic,
+while keeping the violation rate below 1\%. Sensitivity analysis shows that conclusions remain stable under $\pm 10\%$
+perturbations of the most influential parameters.
+We recommend deploying the optimized policy with a conservative safety margin and updating parameters periodically as new data arrive.
+
+\vspace{0.8em}
+\noindent\textbf{Key words:} prediction; optimization; robustness; validation
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                MAIN BODY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{1}
+% Uncomment if you want a TOC (counts toward page limit)
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\subsection{Background and Motivation}
+Many real-world planning problems require both (i) forecasting uncertain outcomes and (ii) choosing actions that perform well
+under constraints. A purely predictive model may be accurate yet operationally useless, while a purely heuristic decision rule
+may be feasible yet suboptimal. Our goal is to bridge this gap by combining a lightweight predictive model with an optimization layer
+that explicitly encodes feasibility and risk preferences.
+
+\subsubsection{Quick overview of our approach}
+Our approach follows the pipeline:
+\[
+\text{data/assumptions} \rightarrow \text{feature design} \rightarrow \text{prediction} \rightarrow \text{optimization} \rightarrow \text{validation/sensitivity}.
+\]
+For official contest information, see \href{https://www.contest.comap.com/undergraduate/contests/mcm/}{COMAP MCM/ICM website}.
+
+\section{Problem Restatement}
+We restate the problem in terms of inputs, outputs, and evaluation criteria:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Inputs:} observed historical records, scenario descriptors, and constraints (budget/capacity/feasibility).
+  \item \textbf{Outputs:} forecasts for target quantities and a recommended policy/strategy.
+  \item \textbf{Objectives:} maximize performance score (or minimize cost/risk) subject to stated constraints.
+\end{itemize}
+
+\subsubsection{Task decomposition}
+We decompose the problem into three tasks:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Task 1 (Predict):} estimate outcomes $\hat{y}$ from features $\vect{x}$.
+  \item \textbf{Task 2 (Decide):} choose an action/policy $\vect{d}$ that optimizes an objective under constraints.
+  \item \textbf{Task 3 (Explain):} interpret results, provide insights, and assess robustness.
+\end{enumerate}
+
+\section{Assumptions}
+Assumptions are designed to be defensible and to simplify modeling without breaking realism:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Stable mapping:} the relationship between features and outcomes is approximately stable over the planning horizon.
+  \item \textbf{Bounded noise:} measurement errors are bounded and do not systematically bias the main outcomes.
+  \item \textbf{Constraint validity:} budgets/capacities provided in the prompt reflect operational limits.
+\end{enumerate}
+
+\subsubsection{What we do if an assumption fails}
+If stability is violated (distribution shift), we re-fit using rolling windows; if noise is heavy-tailed, we switch from least squares
+to a robust loss (e.g., Huber). These contingency plans are tested via stress scenarios in Section~\ref{sec:sensitivity}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Notation and Definitions}
+\subsection{Notation table}
+\begin{table}[H]
+\centering
+\caption{Key notation used throughout the paper.}
+\label{tab:notation}
+\begin{tabularx}{0.95\linewidth}{>{\centering\arraybackslash}m{0.20\linewidth} X}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} \\
+\midrule
+$\vect{x}\in\R^n$ & Feature vector describing a scenario or candidate decision \\
+$y\in\R$ & Observed target value (score/cost/demand/etc.) \\
+$\hat{y}=f(\vect{x};\theta)$ & Prediction model with parameters $\theta$ \\
+$\vect{d}\in\R^m$ & Decision/policy variables to be selected \\
+$A\vect{d}\le \vect{b}$ & Linear feasibility constraints (capacity/budget) \\
+$\lambda,\gamma$ & Trade-off parameters for utility vs. cost/risk \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Core definition and a lemma}
+\begin{definition}[Feasible set]
+The feasible set is $\mathcal{F}=\{\vect{d}\in\R^m: A\vect{d}\le \vect{b},\ \vect{d}\ge \vect{0}\}$.
+\end{definition}
+
+\begin{lemma}[Convex feasibility]
+If $A\vect{d}\le\vect{b}$ and $\vect{d}\ge\vect{0}$ are linear constraints, then $\mathcal{F}$ is convex.
+\end{lemma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Overall Solution Framework}
+\subsection{Workflow diagram}
+Figure~\ref{fig:workflow} illustrates the end-to-end pipeline from data to decisions and evaluation.
+
+\begin{figure}[H]
+  \centering
+  % Replace with your own figure file, e.g., figures/workflow.png
+  \includegraphics[width=0.85\linewidth]{example-image-a}
+  \caption{Workflow: preprocessing $\rightarrow$ prediction $\rightarrow$ optimization $\rightarrow$ validation \& sensitivity.}
+  \label{fig:workflow}
+\end{figure}
+
+\subsection{What makes the framework contest-friendly}
+We prioritize (i) interpretability (clear assumptions), (ii) computational simplicity (fast fitting and solving),
+and (iii) robustness (sensitivity tests). This balance helps produce a solution that is not only numerically strong
+but also easy for judges to audit.
+
+\subsubsection{Deliverables}
+Our final deliverables include:
+\begin{itemize}[leftmargin=*]
+  \item a predictive model with reported error metrics,
+  \item an optimization-based policy with constraint guarantees,
+  \item a robustness analysis summarizing where conclusions may change.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Task 1: Predictive Modeling}
+\subsection{Data preprocessing}
+\subsubsection{Cleaning and normalization}
+We remove duplicates, handle missing values by domain-appropriate imputation (median for continuous variables, mode for categorical),
+and normalize continuous features to zero mean and unit variance so coefficients are comparable.
+
+\subsubsection{Feature engineering}
+We derive stable, interpretable features such as relative change:
+\begin{equation}
+\Delta x_t=\frac{x_t-x_{t-1}}{\max\{x_{t-1},\epsilon\}},\quad \epsilon>0.
+\label{eq:relchange}
+\end{equation}
+This reduces sensitivity to scale and improves generalization.
+
+\subsection{Model specification}
+\subsubsection{Baseline regression}
+We start with a parsimonious linear model:
+\begin{equation}
+\hat{y}=\beta_0+\sum_{j=1}^{n}\beta_j x_j.
+\label{eq:lin}
+\end{equation}
+
+\subsubsection{Parameter estimation}
+Parameters are obtained by least squares:
+\begin{equation}
+\hat{\beta}=\argmin_{\beta}\sum_{i=1}^{N}\big(y_i-\hat{y}_i(\beta)\big)^2.
+\label{eq:ls}
+\end{equation}
+
+\subsection{Model evaluation}
+\subsubsection{Train/validation protocol}
+We split data into training and validation sets (or use $K$-fold cross-validation) to estimate out-of-sample performance.
+
+\subsubsection{Metrics}
+We report MAE and MAPE:
+\[
+\mathrm{MAE}=\frac{1}{N}\sum_{i=1}^{N}|y_i-\hat{y}_i|,
+\qquad
+\mathrm{MAPE}=\frac{100}{N}\sum_{i=1}^{N}\left|\frac{y_i-\hat{y}_i}{y_i}\right|.
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Task 2: Decision Model and Optimization}
+\subsection{Decision variables and objective}
+\subsubsection{Utility formulation}
+We select a decision $\vect{d}$ to maximize expected utility minus cost:
+\begin{equation}
+\max_{\vect{d}\in\mathcal{F}}\; U(\vect{d})-\gamma\,C(\vect{d}),
+\label{eq:utility}
+\end{equation}
+where $U(\vect{d})=\E[\hat{y}(\vect{d})]$ and $C(\vect{d})$ is a measurable cost.
+
+\subsubsection{Concrete example objective}
+A common contest-friendly choice is a linearized objective:
+\[
+U(\vect{d})=\vect{w}^\top \vect{d},\qquad C(\vect{d})=\vect{c}^\top \vect{d}.
+\]
+Then Eq.~\eqref{eq:utility} becomes a linear program.
+
+\subsection{Constraints}
+\subsubsection{Budget and capacity}
+We enforce:
+\begin{equation}
+A\vect{d}\le\vect{b},\qquad \vect{d}\ge \vect{0}.
+\label{eq:constraints}
+\end{equation}
+
+\subsubsection{Fairness / balance (optional)}
+If needed, we add constraints such as $d_i\le \rho \sum_j d_j$ to prevent over-concentration.
+
+\subsection{Solution method}
+\subsubsection{Solver choice}
+Because the optimization is linear/convex, we can solve it efficiently using standard LP/QP solvers.
+This is computationally stable and reproducible.
+
+\subsubsection{Sanity checks}
+We verify feasibility (no violated constraints) and compare with baseline heuristics (e.g., greedy or uniform allocation).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\subsection{Main quantitative results}
+\subsubsection{Result table}
+\begin{table}[H]
+\centering
+\caption{Illustrative results table (replace with your real numbers).}
+\label{tab:results}
+\begin{tabular}{lcc}
+\toprule
+Method & Primary Score $\uparrow$ & Constraint Violation $\downarrow$ \\
+\midrule
+Baseline heuristic & 0.71 & 2.5\% \\
+Proposed framework & 0.80 & 0.8\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Interpretation}
+The proposed approach improves the primary score while reducing violations, indicating that the optimization layer effectively
+translates predictive estimates into feasible decisions.
+
+\subsection{Visual results}
+\subsubsection{Comparison figure}
+\begin{figure}[H]
+  \centering
+  % Replace with your own plot, e.g., figures/compare.png
+  \includegraphics[width=0.75\linewidth]{example-image-b}
+  \caption{Illustrative comparison plot (placeholder).}
+  \label{fig:compare}
+\end{figure}
+
+\subsubsection{What the figure shows}
+Figure~\ref{fig:compare} summarizes relative performance under multiple scenarios and highlights stability of the proposed policy.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sensitivity Analysis}
+\label{sec:sensitivity}
+\subsection{Sensitivity design}
+\subsubsection{One-at-a-time perturbation}
+We perturb a key parameter (e.g., $\gamma$ or major coefficients in $\theta$) by $\pm 10\%$ and recompute outcomes.
+
+\subsubsection{Scenario stress tests}
+We generate extreme scenarios (high demand, low capacity, noisy measurements) to test failure modes.
+
+\subsection{Sensitivity results}
+\subsubsection{Stability statement}
+Performance remains within a narrow band for moderate perturbations, suggesting the decision is not fragile.
+
+\subsubsection{Most influential factors}
+We identify which parameter shifts cause the largest change and recommend monitoring those in deployment.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Strengths and Weaknesses}
+\subsection{Strengths}
+\subsubsection{Interpretability}
+The model uses transparent assumptions, a clear notation table, and objective functions aligned with the task.
+
+\subsubsection{Reproducibility}
+Every step (preprocessing, fitting, optimization, evaluation) is deterministic given inputs, making the solution easy to audit.
+
+\subsection{Weaknesses}
+\subsubsection{Data limitations}
+If the available data are sparse or biased, predictive accuracy may degrade in unseen regimes.
+
+\subsubsection{Model mismatch}
+A simple model may miss nonlinear effects; we mitigate this by sensitivity tests and by suggesting a robust loss if needed.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+\subsection{Summary of what we built}
+\subsubsection{Task-level recap}
+Task 1 provides a validated predictor; Task 2 converts predictions into a feasible policy; Task 3 explains trade-offs and robustness.
+
+\subsubsection{Actionable recommendation}
+We recommend deploying the optimized policy with a conservative safety margin and re-estimating parameters periodically.
+
+\subsection{Future work}
+\subsubsection{Model upgrades}
+Future extensions include nonlinear predictors, Bayesian uncertainty quantification, and adaptive re-optimization under streaming data.
+
+\subsubsection{Operational improvements}
+If real-time feedback is available, we can implement rolling updates and early-warning thresholds.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+\bibitem[Author(Year)]{key}
+Author. (Year). \textit{Title}. Journal/Conference, volume(issue), pages.
+
+\bibitem[Hastie et~al.(2009)]{hastie2009}
+Hastie, T., Tibshirani, R., and Friedman, J. (2009).
+\textit{The Elements of Statistical Learning}. Springer.
+\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\section{Appendix A: Additional Derivations}
+\subsection{Derivation details}
+\subsubsection{Example bound}
+Assume $\norm{\nabla f(\vect{x})}\le L$. Then for any $\vect{x},\vect{z}\in\R^n$,
+\[
+|f(\vect{x})-f(\vect{z})|\le L\norm{\vect{x}-\vect{z}}.
+\]
+This supports the stability discussion in Section~\ref{sec:sensitivity}.
+\clearpage
+\section*{Report on Use of AI Tools}
+\addcontentsline{toc}{section}{Report on Use of AI Tools}
+
+\subsection*{Tools Used}
+We used the following AI tool(s) during the preparation of this report:
+\begin{itemize}
+  \item \textbf{Model/Tool:} \textcolor{red}{(e.g., ChatGPT / GPT-4 / other)}.
+  \item \textbf{Access Mode:} \textcolor{red}{(e.g., web interface / local deployment)}.
+\end{itemize}
+
+\subsection*{Purpose and Scope of Use}
+The AI tool(s) were used for:
+\begin{itemize}
+  \item \textbf{Language refinement:} improving grammar, clarity, and conciseness of sentences written by the team.
+  \item \textbf{Formatting assistance:} generating LaTeX snippets (tables, figures, references) without changing the mathematical meaning.
+  \item \textbf{Code sanity-checking:} spotting potential bugs or edge cases in team-written code (final code authored and executed by the team).
+\end{itemize}
+
+\subsection*{Human Verification and Responsibility}
+All AI-generated outputs were treated as suggestions. The team verified and finalized all content by:
+\begin{itemize}
+  \item cross-checking every numerical result with independent calculations and/or rerunning code,
+  \item confirming that assumptions match the problem statement and do not introduce prohibited information,
+  \item ensuring that all claims supported by external knowledge are cited to non-AI sources.
+\end{itemize}
+The team takes full responsibility for the correctness, originality, and integrity of the final submission.
+
+\subsection*{Record of AI-Generated Contributions}
+Examples of AI-assisted elements include:
+\begin{itemize}
+  \item draft alternative phrasings of the Summary section,
+  \item proposed outline structures for sections and subsections,
+  \item LaTeX formatting suggestions for tables/figures and hyperlink settings.
+\end{itemize}
+
+\subsection*{Sources and Citations}
+When AI outputs referenced facts or methods beyond the team's direct derivations, we validated them against reputable sources and cited those sources in the bibliography.
+
+
+\end{document}
