@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mcp-tool mcp__jupyter get_cells:*)",
+      "Bash(python3:*)",
+      "Bash(jupyter nbconvert:*)"
+    ]
+  }
+}
