@@ -179,6 +179,7 @@ def main() -> None:
     output_dir = "wikiPageview"
     os.makedirs(output_dir, exist_ok=True)
     cache_path = os.path.join(output_dir, "qid_cache.csv")
+    progress_path = os.path.join(output_dir, "results_awards_pre_t0_progress.csv")
     output_path = os.path.join(output_dir, "results_awards_pre_t0.csv")
 
     df = load_participants(input_csv)
@@ -188,17 +189,37 @@ def main() -> None:
 
     df = resolve_qid_if_needed(df, cache_path, session)
 
+    df = df.reset_index().rename(columns={"index": "row_idx"})
+
+    processed_rows = set()
+    if os.path.exists(progress_path):
+        progress_df = pd.read_csv(progress_path)
+        if "row_idx" in progress_df.columns:
+            processed_rows = set(
+                progress_df["row_idx"].dropna().astype(int).tolist()
+            )
+
     results = []
     award_cache: Dict[Tuple[str, str], Tuple[int, int, int]] = {}
 
-    iterator = df.iterrows()
+    save_every = 20
     if tqdm is not None:
-        iterator = tqdm(iterator, total=len(df), desc="Querying awards")
+        pbar = tqdm(
+            total=len(df),
+            initial=len(processed_rows),
+            desc="Querying awards",
+        )
+    else:
+        pbar = None
 
-    for _, row in iterator:
-        name = str(row["celebrity_name"]).strip()
-        qid = str(row["qid"]).strip() if pd.notna(row["qid"]) else ""
-        t0_date = str(row["t0"]).strip() if pd.notna(row["t0"]) else ""
+    for row in df.itertuples(index=False):
+        row_idx = int(row.row_idx)
+        if row_idx in processed_rows:
+            continue
+
+        name = str(row.celebrity_name).strip()
+        qid = str(row.qid).strip() if pd.notna(row.qid) else ""
+        t0_date = str(row.t0).strip() if pd.notna(row.t0) else ""
 
         if not t0_date or t0_date == "NaT":
             awards_total = awards_dated = awards_pre_t0 = 0
@@ -220,6 +241,7 @@ def main() -> None:
 
         results.append(
             {
+                "row_idx": row_idx,
                 "name": name,
                 "t0": t0_date,
                 "qid": qid,
@@ -229,10 +251,38 @@ def main() -> None:
                 "award_date_coverage": coverage,
             }
         )
+        if pbar is not None:
+            pbar.update(1)
 
-    out_df = pd.DataFrame(results)
-    out_df.to_csv(output_path, index=False)
-    print(out_df.head(5).to_string(index=False))
+        if len(results) >= save_every:
+            pd.DataFrame(results).to_csv(
+                progress_path,
+                index=False,
+                mode="a",
+                header=not os.path.exists(progress_path),
+            )
+            results = []
+
+    if results:
+        pd.DataFrame(results).to_csv(
+            progress_path,
+            index=False,
+            mode="a",
+            header=not os.path.exists(progress_path),
+        )
+
+    if pbar is not None:
+        pbar.close()
+
+    final_df = pd.read_csv(progress_path)
+    if "row_idx" in final_df.columns:
+        final_df["row_idx"] = final_df["row_idx"].astype(int)
+        final_df = final_df.drop_duplicates("row_idx", keep="last")
+        final_df = final_df.sort_values("row_idx")
+        final_df = final_df.drop(columns=["row_idx"])
+
+    final_df.to_csv(output_path, index=False)
+    print(final_df.head(5).to_string(index=False))
 
 
 if __name__ == "__main__":
