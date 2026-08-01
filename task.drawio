@@ -1,0 +1,178 @@
+<mxfile host="65bd71144e">
+    <diagram name="DWTS Dynamic Plackett-Luce Model" id="dwts-dpl-diagram">
+        <mxGraphModel dx="926" dy="668" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="900" math="1" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="section1" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=2;dashed=1;dashPattern=8 4;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="1020" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="title1_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#E6D5B8;opacity=60;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="500" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="title1" value="&lt;font color=&quot;#B85C38&quot; style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;Dynamic Plackett-Luce Model (Estimate Viewer Vote Share)&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="42" width="480" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_1" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="80" width="420" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_1_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Calculate Log-worth η&lt;sub&gt;i,t&lt;/sub&gt;&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="85" width="420" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_1_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;η&lt;sub&gt;i,t&lt;/sub&gt; = ρ · η&lt;sub&gt;i,t-1&lt;/sub&gt; + (1-ρ) · α&lt;sub&gt;i&lt;/sub&gt; + &lt;b&gt;β&lt;/b&gt;&lt;sup&gt;T&lt;/sup&gt;&lt;b&gt;x&lt;/b&gt;&lt;sub&gt;i,t&lt;/sub&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="110" width="420" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_2" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="80" width="280" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_2_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Calculate Vote Share p&lt;sup&gt;V&lt;/sup&gt;&lt;sub&gt;i,t&lt;/sub&gt;&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="85" width="280" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_2_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;p&lt;sup&gt;V&lt;/sup&gt;&lt;sub&gt;i,t&lt;/sub&gt; = exp(η&lt;sub&gt;i,t&lt;/sub&gt;) / Σ&lt;sub&gt;j∈S&lt;/sub&gt; exp(η&lt;sub&gt;j,t&lt;/sub&gt;)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="110" width="280" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_3" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="80" width="240" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_3_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Calculate Judge Share p&lt;sup&gt;J&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt;&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="85" width="240" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="box1_3_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;p&lt;sup&gt;J&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt; = J&lt;sub&gt;i&lt;/sub&gt; / Σ&lt;sub&gt;j∈S&lt;/sub&gt; J&lt;sub&gt;j&lt;/sub&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="110" width="240" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow1" value="" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#B85C38;endFill=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="550" y="180" as="sourcePoint"/>
+                        <mxPoint x="550" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="section2" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=2;dashed=1;dashPattern=8 4;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="210" width="1020" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="title2_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#E6D5B8;opacity=60;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="210" width="350" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="title2" value="&lt;font color=&quot;#B85C38&quot; style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;Elimination Rules (Season-dependent)&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="212" width="330" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="r2_label" value="&lt;font color=&quot;#B85C38&quot; style=&quot;font-size: 12px;&quot;&gt;&lt;b&gt;R2: Season 3–27 (Percent Combination)&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="245" width="280" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_1" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="270" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_1_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Combined Score C&lt;sub&gt;i&lt;/sub&gt;&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="273" width="180" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_1_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;C&lt;sub&gt;i&lt;/sub&gt; = p&lt;sup&gt;J&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt; + p&lt;sup&gt;V&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="293" width="180" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_2" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="270" width="340" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_2_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Elimination Probability (R2)&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="273" width="340" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_2_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;P(elim=i) = exp(-κ·C&lt;sub&gt;i&lt;/sub&gt;) / Σ&lt;sub&gt;j&lt;/sub&gt; exp(-κ·C&lt;sub&gt;j&lt;/sub&gt;)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="293" width="340" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_6" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="270" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_6_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Negative Log-Likelihood Loss&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="273" width="420" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_6_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;ℒ = -Σ&lt;sub&gt;t&lt;/sub&gt; log P(elim=e&lt;sub&gt;t&lt;/sub&gt; | S&lt;sub&gt;t&lt;/sub&gt;) + λ&lt;sub&gt;α&lt;/sub&gt;‖&lt;b&gt;α&lt;/b&gt;‖²&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="293" width="420" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="r1r3_label" value="&lt;font color=&quot;#B85C38&quot; style=&quot;font-size: 12px;&quot;&gt;&lt;b&gt;R1: Season 1–2 &amp;amp; R3: Season ≥28 (Risk-based)&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="340" width="320" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_3" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="365" width="280" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_3_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Continuous Risk R&lt;sub&gt;i&lt;/sub&gt;&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="368" width="280" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_3_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;R&lt;sub&gt;i&lt;/sub&gt; = ω · v&lt;sup&gt;J&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt; + (1-ω) · v&lt;sup&gt;V&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt;&lt;br&gt;&lt;font size=&quot;2&quot;&gt;v&lt;sup&gt;J&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt; = (r&lt;sup&gt;J&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt; - 1)/(n-1)&lt;br&gt;v&lt;sup&gt;V&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt; = σ((-log p&lt;sup&gt;V&lt;/sup&gt;&lt;sub&gt;i&lt;/sub&gt; - μ)/σ)&lt;/font&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="390" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_4" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="365" width="280" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_4_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;R1: Top-1 Elimination&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="368" width="280" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_4_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;P(elim=i) = softmax(κ&lt;sub&gt;R1&lt;/sub&gt; · R)&lt;sub&gt;i&lt;/sub&gt;&lt;br&gt;&lt;font size=&quot;2&quot;&gt;Eliminate contestant&lt;br&gt;with highest risk&lt;/font&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="390" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_5" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="365" width="380" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_5_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;R3: PL Bottom-2 + Judge Voting&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="368" width="380" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box2_5_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;P({i,j}) = w&lt;sub&gt;i&lt;/sub&gt;w&lt;sub&gt;j&lt;/sub&gt;/[W(W-w&lt;sub&gt;i&lt;/sub&gt;)] + w&lt;sub&gt;j&lt;/sub&gt;w&lt;sub&gt;i&lt;/sub&gt;/[W(W-w&lt;sub&gt;j&lt;/sub&gt;)]&lt;br&gt;&lt;font size=&quot;2&quot;&gt;P(elim=i) = Σ&lt;sub&gt;j&lt;/sub&gt; P({i,j}) · P(judge elim i | {i,j})&lt;br&gt;where w&lt;sub&gt;k&lt;/sub&gt; = exp(κ&lt;sub&gt;b2&lt;/sub&gt; · R&lt;sub&gt;k&lt;/sub&gt;)&lt;/font&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="390" width="380" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow2" value="" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#B85C38;endFill=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="550" y="500" as="sourcePoint"/>
+                        <mxPoint x="550" y="530" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="section3" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=2;dashed=1;dashPattern=8 4;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="530" width="1020" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="title3_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#E6D5B8;opacity=60;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="530" width="280" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="title3" value="&lt;font color=&quot;#B85C38&quot; style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;Two-Stage Training Strategy&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="532" width="260" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="box3_1" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="570" width="300" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="box3_1_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Stage A: Train Θ&lt;sub&gt;vote&lt;/sub&gt; on R2 (S3–27)&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="573" width="300" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box3_1_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;Θ&lt;sub&gt;vote&lt;/sub&gt; = {α&lt;sub&gt;i&lt;/sub&gt;, ρ, &lt;b&gt;β&lt;/b&gt;, κ&lt;sub&gt;pct&lt;/sub&gt;}&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="595" width="300" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow3" value="" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#B85C38;endFill=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="360" y="602" as="sourcePoint"/>
+                        <mxPoint x="380" y="602" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="box3_2" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="570" width="350" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="box3_2_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Stage B: Train Θ&lt;sub&gt;rule&lt;/sub&gt; on R1+R3 (Freeze Θ&lt;sub&gt;vote&lt;/sub&gt;)&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="573" width="350" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box3_2_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;Θ&lt;sub&gt;rule&lt;/sub&gt; = {ω, κ&lt;sub&gt;R1&lt;/sub&gt;, κ&lt;sub&gt;b2&lt;/sub&gt;, γ, bias}&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="595" width="350" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow4" value="" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#B85C38;endFill=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="730" y="602" as="sourcePoint"/>
+                        <mxPoint x="750" y="602" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="box3_3" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B85C38;strokeWidth=1;dashed=1;dashPattern=4 2;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="570" width="290" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="box3_3_title" value="&lt;font color=&quot;#B85C38&quot;&gt;&lt;i&gt;Final Output&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="573" width="290" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="box3_3_formula" value="&lt;font color=&quot;#5C3D2E&quot;&gt;p̂&lt;sup&gt;V&lt;/sup&gt;&lt;sub&gt;i,t&lt;/sub&gt; and P(elim=i)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="595" width="290" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="caption" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Figure X: DWTS Dynamic Plackett-Luce Model Architecture&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="670" width="400" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

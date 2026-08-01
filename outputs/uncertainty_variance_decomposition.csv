@@ -1,0 +1,7 @@
+Component,Variance_Pct,Method
+Structural (Rule/Week),48.3,OLS Regression
+Contestant Trait,41.2,OLS Regression
+Industry,0.1,OLS Regression
+Unexplained,10.4,OLS Regression
+Between-Contestant (ICC),67.79761648435891,Mixed Effects
+Within-Contestant,32.20238351564109,Mixed Effects

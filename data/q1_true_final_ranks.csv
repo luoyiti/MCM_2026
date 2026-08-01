@@ -1,0 +1,422 @@
+season,celebrity_name,true_exit_week,withdrew_flag,season_max_week,true_final_rank
+1,Evander Holyfield,3,False,6,4
+1,Joey McIntyre,5,False,6,2
+1,John O'Hurley,7,False,6,1
+1,Kelly Monaco,7,False,6,1
+1,Rachel Hunter,4,False,6,3
+1,Trista Sutter,2,False,6,5
+2,Drew Lachey,9,False,8,1
+2,George Hamilton,6,False,8,3
+2,Giselle Fernandez,3,False,8,6
+2,Jerry Rice,9,False,8,1
+2,Kenny Mayne,1,False,8,8
+2,Lisa Rinna,7,False,8,2
+2,Master P,4,False,8,5
+2,Stacy Keibler,9,False,8,1
+2,Tatum O'Neal,2,False,8,7
+2,Tia Carrere,5,False,8,4
+3,Emmitt Smith,11,False,10,1
+3,Harry Hamlin,3,False,10,7
+3,Jerry Springer,7,False,10,4
+3,Joey Lawrence,9,False,10,2
+3,Mario Lopez,11,False,10,1
+3,Monique Coleman,8,False,10,3
+3,Sara Evans,5,True,10,5
+3,Shanna Moakler,2,False,10,8
+3,Tucker Carlson,1,False,10,9
+3,Vivica A. Fox,4,False,10,6
+3,Willa Ford,5,False,10,5
+4,Apolo Anton Ohno,11,False,10,1
+4,Billy Ray Cyrus,8,False,10,3
+4,Clyde Drexler,5,False,10,6
+4,Heather Mills,6,False,10,5
+4,Ian Ziering,9,False,10,2
+4,Joey Fatone,11,False,10,1
+4,John Ratzenberger,7,False,10,4
+4,Laila Ali,11,False,10,1
+4,Leeza Gibbons,4,False,10,7
+4,Paulina Porizkova,2,False,10,9
+4,Shandi Finnessey,3,False,10,8
+5,Albert Reed,2,False,10,9
+5,Cameron Mathison,8,False,10,3
+5,Floyd Mayweather Jr. ,4,False,10,7
+5,Helio Castroneves,11,False,10,1
+5,Jane Seymour,7,False,10,4
+5,Jennie Garth,9,False,10,2
+5,Josie Maran,1,False,10,10
+5,Marie Osmond,11,False,10,1
+5,Mark Cuban,5,False,10,6
+5,Mel B,11,False,10,1
+5,Sabrina Bryan,6,False,10,5
+5,Wayne Newton,3,False,10,8
+6,Adam Carolla,4,False,10,7
+6,Cristian de la Fuente,11,False,10,1
+6,Jason Taylor,11,False,10,1
+6,Kristi Yamaguchi,11,False,10,1
+6,Mario,8,False,10,3
+6,Marissa Jaret Winokur,9,False,10,2
+6,Marlee Matlin,6,False,10,5
+6,Monica Seles,2,False,10,9
+6,Penn Jillette,2,False,10,9
+6,Priscilla Presley,5,False,10,6
+6,Shannon Elizabeth,7,False,10,4
+6,Steve Guttenberg,3,False,10,8
+7,Brooke Burke,11,False,10,1
+7,Cloris Leachman,6,False,10,5
+7,Cody Linley,9,False,10,2
+7,Jeffrey Ross,1,False,10,9
+7,Kim Kardashian,2,False,10,8
+7,Lance Bass,11,False,10,1
+7,Maurice Greene,8,False,10,3
+7,Misty May-Treanor,2,True,10,8
+7,Rocco DiSpirito,4,False,10,7
+7,Susan Lucci,7,False,10,4
+7,Ted McGinley,1,False,10,9
+7,Toni Braxton,5,False,10,6
+7,Warren Sapp,11,False,10,1
+8,Belinda Carlisle,2,False,11,10
+8,Chuck Wicks,8,False,11,4
+8,David Alan Grier,5,False,11,7
+8,Denise Richards,3,False,11,9
+8,Gilles Marini,12,False,11,1
+8,Holly Madison,4,False,11,8
+8,Lawrence Taylor,7,False,11,5
+8,Lil' Kim,9,False,11,3
+8,Melissa Rycroft,12,False,11,1
+8,Shawn Johnson,12,False,11,1
+8,Steve Wozniak,4,False,11,8
+8,Steve-O,6,False,11,6
+8,Ty Murray,10,False,11,2
+9,Aaron Carter,8,False,10,3
+9,Ashley Hamiliton,1,False,10,10
+9,Chuck Liddell,4,False,10,7
+9,Debi Mazar,3,False,10,8
+9,Donny Osmond,11,False,10,1
+9,Joanna Krupa,9,False,10,2
+9,Kathy Ireland,2,False,10,9
+9,Kelly Osbourne,11,False,10,1
+9,Louie Vito,6,False,10,5
+9,Macy Gray,1,False,10,10
+9,Mark Dacascos,7,False,10,4
+9,Melissa Joan Hart,6,False,10,5
+9,Michael Irvin,7,False,10,4
+9,Mya,11,False,10,1
+9,Natalie Coughlin,5,False,10,6
+9,Tom DeLay,3,True,10,8
+10,Aiden Turner,4,False,10,7
+10,Buzz Aldrin,3,False,10,8
+10,Chad Ochocinco,9,False,10,2
+10,Erin Andrews,11,False,10,1
+10,Evan Lysacek,11,False,10,1
+10,Jake Pavelka,6,False,10,5
+10,Kate Gosselin,5,False,10,6
+10,Nicole Scherzinger,11,False,10,1
+10,Niecy Nash,8,False,10,3
+10,Pamela Anderson,7,False,10,4
+10,Shannen Doherty,2,False,10,9
+11,Audrina Patridge,6,False,10,5
+11,Brandy,9,False,10,2
+11,Bristol Palin,11,False,10,1
+11,David Hasselhoff,1,False,10,10
+11,Florence Henderson,5,False,10,6
+11,Jennifer Grey,11,False,10,1
+11,Kurt Warner,8,False,10,3
+11,Kyle Massey,11,False,10,1
+11,Margaret Cho,3,False,10,8
+11,Michael Bolton,2,False,10,9
+11,Rick Fox,7,False,10,4
+11,The Situation,4,False,10,7
+12,Chelsea Kane,11,False,10,1
+12,Chris Jericho,6,False,10,5
+12,Hines Ward,11,False,10,1
+12,Kendra Wilkinson,7,False,10,4
+12,Kirstie Alley,11,False,10,1
+12,Mike Catherwood,2,False,10,9
+12,Petra Nemcova,5,False,10,6
+12,Ralph Macchio,9,False,10,2
+12,Romeo,8,False,10,3
+12,Sugar Ray Leonard,4,False,10,7
+12,Wendy Williams,3,False,10,8
+13,Carson Kressley,5,False,10,6
+13,Chaz Bono,6,False,10,5
+13,Chynna Phillips,4,False,10,7
+13,David Arquette,7,False,10,4
+13,Elisabetta Canalis,2,False,10,9
+13,Hope Solo,9,False,10,2
+13,J.R. Martinez,11,False,10,1
+13,Kristin Cavallari,3,False,10,8
+13,Metta World Peace (Ron),1,False,10,10
+13,Nancy Grace,8,False,10,3
+13,Ricki Lake,11,False,10,1
+13,Rob Kardashian,11,False,10,1
+14,Donald Driver,11,False,10,1
+14,Gavin DeGraw,5,False,10,6
+14,Gladys Knight,6,False,10,5
+14,Jack Wagner,3,False,10,8
+14,Jaleel White,7,False,10,4
+14,Katherine Jenkins,11,False,10,1
+14,Maria Menounos,9,False,10,2
+14,Martina Navratilova,2,False,10,9
+14,Melissa Gilbert,8,False,10,3
+14,Roshon Fegan,8,False,10,3
+14,Sherri Sheperd,4,False,10,7
+14,William Levy,11,False,10,1
+15,Apolo Anton Ohno,9,False,10,2
+15,Bristol Palin,4,False,10,5
+15,Drew Lachey,3,False,10,6
+15,Emmitt Smith,9,False,10,2
+15,Gilles Marini,8,False,10,3
+15,Helio Castroneves,3,False,10,6
+15,Joey Fatone,2,False,10,7
+15,Kelly Monaco,11,False,10,1
+15,Kirstie Alley,8,False,10,3
+15,Melissa Rycroft,11,False,10,1
+15,Pamela Anderson,1,False,10,8
+15,Sabrina Bryan,6,False,10,4
+15,Shawn Johnson,11,False,10,1
+16,Alexandra Raisman,11,False,10,1
+16,Andy Dick,7,False,10,4
+16,D. L. Hughley,5,False,10,6
+16,Dorothy Hamill,2,True,10,9
+16,Ingo Rademacher,9,False,10,2
+16,Jacoby Jones,11,False,10,1
+16,Kellie Pickler,11,False,10,1
+16,Lisa Vanderpump,4,False,10,7
+16,Sean Lowe,8,False,10,3
+16,Victor Ortiz,6,False,10,5
+16,Wynonna Judd,3,False,10,8
+16,Zendaya,11,False,10,1
+17,Amber Riley,12,False,11,1
+17,Bill Engvall,12,False,11,1
+17,Bill Nye,3,False,11,8
+17,Brant Daugherty,8,False,11,4
+17,Christina Milian,5,False,11,6
+17,Corbin Bleu,12,False,11,1
+17,Elizabeth Berkley Lauren,9,False,11,3
+17,Jack Osbourne,12,False,11,1
+17,Keyshawn Johnson,2,False,11,9
+17,Leah Remini,10,False,11,2
+17,"Nicole ""Snooki"" Polizzi",7,False,11,5
+17,Valerie Harper,4,False,11,7
+18,Amy Purdy,11,False,10,1
+18,Billy Dee Williams,2,True,10,7
+18,Candace Cameron Bure,11,False,10,1
+18,Charlie White,9,False,10,2
+18,Cody Simpson,5,False,10,6
+18,Danica McKellar,8,False,10,3
+18,Diana Nyad,1,False,10,8
+18,Drew Carey,6,False,10,5
+18,James Maslow,11,False,10,1
+18,Meryl Davis,11,False,10,1
+18,NeNe Leakes,7,False,10,4
+18,Sean Avery,2,False,10,7
+19,Alfonso Ribeiro,12,False,11,1
+19,Antonio Sabato Jr.,7,False,11,5
+19,Bethany Mota,12,False,11,1
+19,Betsey Johnson,4,False,11,7
+19,Janel Parrish,12,False,11,1
+19,Jonathan Bennett,6,False,11,6
+19,Lea Thompson,9,False,11,3
+19,Lolo Jones,1,False,11,10
+19,Michael Waltrip,8,False,11,4
+19,Randy Couture,3,False,11,8
+19,Sadie Robertson,12,False,11,1
+19,Tavis Smiley,2,False,11,9
+19,Tommy Chong,10,False,11,2
+20,Charlotte McKinney,3,False,10,8
+20,Chris Soules,8,False,10,3
+20,Michael Sam,4,False,10,7
+20,Nastia Liukin,9,False,10,2
+20,Noah Galloway,11,False,10,1
+20,Patti LaBelle,6,False,10,5
+20,Redfoo,2,False,10,9
+20,Riker Lynch,11,False,10,1
+20,Robert Herjavec,8,False,10,3
+20,Rumer Willis,11,False,10,1
+20,Suzanne Somers,5,False,10,6
+20,Willow Shields,7,False,10,4
+21,Alek Skarlatos,12,False,11,1
+21,Alexa PenaVega,9,False,11,2
+21,Andy Grammer,8,False,11,3
+21,Bindi Irwin,12,False,11,1
+21,Carlos PenaVega,12,False,11,1
+21,Chaka Khan,2,False,11,7
+21,Gary Busey,4,False,11,6
+21,Hayes Grier,7,False,11,4
+21,Kim Zolciak-Biermann,2,True,11,7
+21,Nick Carter,12,False,11,1
+21,Paula Deen,6,False,11,5
+21,Tamar Braxton,9,True,11,2
+21,Victor Espinoza,2,False,11,7
+22,Antonio Brown,9,False,10,2
+22,Doug Flutie,6,False,10,5
+22,Geraldo Rivera,2,False,10,8
+22,Ginger Zee,11,False,10,1
+22,Jodie Sweetin,8,False,10,3
+22,Kim Fields,7,False,10,4
+22,Marla Maples,4,False,10,6
+22,Mischa Barton,3,False,10,7
+22,Nyle DiMarco,11,False,10,1
+22,Paige VanZant,11,False,10,1
+22,Von Miller,7,False,10,4
+22,Wanya Morris,9,False,10,2
+23,Amber Rose,6,False,11,6
+23,Babyface,4,False,11,7
+23,Calvin Johnson Jr.,12,False,11,1
+23,Jake T. Austin,2,False,11,9
+23,James Hinchcliffe,12,False,11,1
+23,Jana Kramer,12,False,11,1
+23,Laurie Hernandez,12,False,11,1
+23,Marilu Henner,9,False,11,3
+23,Maureen McCormick,7,False,11,5
+23,Rick Perry,3,False,11,8
+23,Ryan Lochte,8,False,11,4
+23,Terra Jole,10,False,11,2
+23,Vanilla Ice,4,False,11,7
+24,Bonner Bolton,8,False,10,3
+24,Charo,3,False,10,8
+24,Chris Kattan,2,False,10,9
+24,David Ross,11,False,10,1
+24,Erika Jayne,5,False,10,6
+24,Heather Morris,6,False,10,5
+24,Mr. T,4,False,10,7
+24,Nancy Kerrigan,7,False,10,4
+24,Nick Viall,7,False,10,4
+24,Normani,11,False,10,1
+24,Rashad Jennings,11,False,10,1
+24,Simone Biles,9,False,10,2
+25,Barbara Corcoran,2,False,10,8
+25,Debbie Gibson,2,False,10,8
+25,Derek Fisher,4,False,10,7
+25,Drew Scott,11,False,10,1
+25,Frankie Muniz,11,False,10,1
+25,Jordan Fisher,11,False,10,1
+25,Lindsey Stirling,11,False,10,1
+25,Nick Lachey,6,False,10,5
+25,Nikki Bella,7,False,10,4
+25,Sasha Pieterse,5,False,10,6
+25,Terrell Owens,8,False,10,3
+25,Vanessa Lachey,7,False,10,4
+25,Victoria Arlen,9,False,10,2
+26,Adam Rippon,5,False,4,1
+26,Arike Ogunbowale,2,False,4,3
+26,Chris Mazdzer,3,False,4,2
+26,Jamie Anderson,1,False,4,4
+26,Jennie Finch Daigle,3,False,4,2
+26,Johnny Damon,1,False,4,4
+26,Josh Norman,5,False,4,1
+26,Kareem Abdul-Jabbar,2,False,4,3
+26,Mirai Nagasu,3,False,4,2
+26,Tonya Harding,5,False,4,1
+27,Alexis Ren,10,False,9,1
+27,Bobby Bones,10,False,9,1
+27,Danelle Umstead,2,False,9,7
+27,DeMarcus Ware,7,False,9,3
+27,Evanna Lynch,10,False,9,1
+27,Joe Amabile,8,False,9,2
+27,John Schneider,7,False,9,3
+27,Juan Pablo Di Pace,8,False,9,2
+27,Mary Lou Retton,6,False,9,4
+27,Milo Manheim,10,False,9,1
+27,Nancy McKeon,3,False,9,6
+27,Nikki Glaser,1,False,9,8
+27,Tinashe,4,False,9,5
+28,Ally Brooke,12,False,11,1
+28,Hannah Brown,12,False,11,1
+28,James Van Der Beek,10,False,11,2
+28,Karamo Brown,7,False,11,5
+28,Kate Flannery,8,False,11,4
+28,Kel Mitchell,12,False,11,1
+28,Lamar Odom,4,False,11,7
+28,Lauren Alaina,12,False,11,1
+28,Mary Wilson,2,False,11,8
+28,Ray Lewis,2,True,11,8
+28,Sailor Brinkley-Cook,6,False,11,6
+28,Sean Spicer,9,False,11,3
+29,AJ McLean,9,False,11,3
+29,Anne Heche,4,False,11,8
+29,Carole Baskin,3,False,11,9
+29,Charles Oakley,2,False,11,10
+29,Chrishell Stause,8,False,11,4
+29,Jeannie Mai,7,True,11,5
+29,Jesse Metcalfe,5,False,11,7
+29,Johnny Weir,10,False,11,2
+29,Justina Machado,12,False,11,1
+29,Kaitlyn Bristowe,12,False,11,1
+29,Monica Aldama,7,False,11,5
+29,Nelly,12,False,11,1
+29,Nev Schulman,12,False,11,1
+29,Skai Jackson,10,False,11,2
+29,Veron Davis,6,False,11,6
+30,Amanda Kloots,11,False,10,1
+30,Brian Austin Green,4,False,10,7
+30,Christine Chiu,3,False,10,8
+30,Cody Rigsby,11,False,10,1
+30,Iman Shumpert,11,False,10,1
+30,Jimmie Allen,8,False,10,3
+30,JoJo Siwa,11,False,10,1
+30,Kenya Moore,6,False,10,5
+30,Martin Kove,2,False,10,9
+30,Matt James,4,False,10,7
+30,Melanie C,5,False,10,6
+30,Melora Hardin,9,False,10,2
+30,"Mike ""The Miz"" Mizanin",7,False,10,4
+30,Olivia Jade,8,False,10,3
+30,Suni Lee,9,False,10,2
+31,Charli D'Amelio,11,False,10,1
+31,Cheryl Ladd,3,False,10,8
+31,Daniel Durant,9,False,10,2
+31,Gabby Windey,11,False,10,1
+31,Heidi D'Amelio,8,False,10,3
+31,Jason Lewis,1,False,10,10
+31,Jessie James Decker,6,False,10,5
+31,Jordin Sparks,7,False,10,4
+31,Joseph Baena,5,False,10,6
+31,Sam Champion,4,False,10,7
+31,Selma Blair,5,True,10,6
+31,Shangela,11,False,10,1
+31,Teresa Giudice,2,False,10,9
+31,Trevor Donovan,9,False,10,2
+31,Vinny Guadagnino,8,False,10,3
+31,Wayne Brady,11,False,10,1
+32,Adrian Peterson,4,False,11,7
+32,Alyson Hannigan,12,False,11,1
+32,Ariana Madix,12,False,11,1
+32,Barry Williams,8,False,11,3
+32,Charity Lawson,12,False,11,1
+32,Harry Jowsey,9,False,11,2
+32,Jamie Lynn Spears,2,False,11,9
+32,Jason Mraz,12,False,11,1
+32,Lele Pons,7,False,11,4
+32,Matt Walsh,1,False,11,10
+32,Mauricio Umansky,6,False,11,5
+32,Mira Sorvino,5,False,11,6
+32,Tyson Beckford,3,False,11,8
+32,Xochitl Gomez,12,False,11,1
+33,Anna Delvey,2,False,9,7
+33,Brooks Nader,4,False,9,5
+33,Chandler Kinney,10,False,9,1
+33,Danny Amendola,10,False,9,1
+33,Dwight Howard ,7,False,9,2
+33,Eric Roberts,3,False,9,6
+33,Ilona Maher,10,False,9,1
+33,Jenn Tran,6,False,9,3
+33,Joey Graziadei,10,False,9,1
+33,Phaedra Parks,5,False,9,4
+33,Reginald VelJohnson,3,False,9,6
+33,Stephen Nedoroscik,10,False,9,1
+33,Tori Spelling,2,False,9,7
+34,Alix Earle,12,False,11,1
+34,Andy Richter,9,False,11,3
+34,Baron Davis,2,False,11,9
+34,Corey Feldman,2,False,11,9
+34,Danielle Fishel,8,False,11,4
+34,Dylan Efron,12,False,11,1
+34,Elaine Hendrix,12,False,11,1
+34,Hilaria Baldwin,4,False,11,7
+34,Jen Affleck,7,False,11,5
+34,Jordan Chiles,12,False,11,1
+34,Lauren Jauregui,3,False,11,8
+34,Robert Irwin,12,False,11,1
+34,Scott Hoying,6,False,11,6
+34,Whitney Leavitt,10,False,11,2

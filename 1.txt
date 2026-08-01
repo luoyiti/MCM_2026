@@ -1,0 +1,210 @@
+\begin{enumerate}
+  \item \textbf{OpenAI ChatGPT} (December 11, 2025 version, ChatGPT-5.2) \\
+  	extit{Query}: 请根据 2026_MCM_Problem_C 的背景，帮我把论文摘要中一段含糊表述润色为学术英语（不改变核心结论）。原句："We study ranking uncertainty in weekly elimination contests and propose a model." 要求：更准确、正式并指出研究贡献。\\
+  	extit{Output}: We investigate the uncertainty in ranking outcomes for weekly elimination contests (as described in Problem C) and present a probabilistic framework that quantifies rank uncertainty and decomposes its sources. Our contributions are: (1) a reproducible pipeline for estimating contestant survival probabilities using historical vote and judge data; (2) an uncertainty decomposition separating sampling noise from model-driven variability; and (3) evaluation on held-out contest weeks demonstrating improved calibration and interpretability.\\
+
+  \item \textbf{OpenAI ChatGPT} (December 11, 2025 version, ChatGPT-5.2) \\
+  	extit{Query}: 论文中有一句 LaTeX 公式排版有问题，原文写为："The variance is sigma^2 = sum_i var_i"，在论文上下文需要显示为方差分解公式并带上数学符号和注释，帮我写出 LaTeX 格式的整行公式与注释（不改变数学含义）。\\
+  	extit{Output}: \[\mathrm{Var}(Y)=\sigma^2=\sum_{i=1}^n\mathrm{Var}(X_i)=\sum_{i=1}^n\mathbb{E}[(X_i-\mathbb{E}[X_i])^2],\] 其中 $X_i$ 表示导致总体变异的独立成分，等式右侧给出了逐项方差求和的定义。\\
+
+  \item \textbf{OpenAI ChatGPT} (December 11, 2025 version, ChatGPT-5.2) \\
+  	extit{Query}: 有一段方法描述需要把伪代码转成整洁的 LaTeX 算法环境，伪代码逻辑：对每周数据做 bootstrap 重采样并计算最终排名的置信区间。请给出对应的 `algorithm` 环境代码块。\\
+  	extit{Output}: \begin{algorithm}
+\caption{Bootstrap ranks and confidence intervals}
+\begin{algorithmic}[1]
+\Require historical weekly data $D$, number of resamples $B$
+\For{$b=1$ to $B$}
+  \State sample $D^{(b)}\leftarrow$ bootstrap_sample($D$)
+  \State fit predictive model $M^{(b)}$ on $D^{(b)}$
+  \State compute predicted ranks $r^{(b)}$ for evaluation weeks
+\EndFor
+\State for each contestant compute empirical distribution of $r$ and derive CIs
+\end{algorithmic}
+\end{algorithm}\\
+
+  \item \textbf{OpenAI ChatGPT} (December 11, 2025 version, ChatGPT-5.2) \\
+  	extit{Query}: 给出一个简短的 Python 函数，用于将模型输出的排名概率矩阵（形状 T x N）转换为每位参赛者的 95\% 置信区间的排名区间（不改变核心算法）。要求函数说明与示例。\\
+  	extit{Output}: def compute_rank_ci(prob_matrix, alpha=0.05):
+    """输入：prob_matrix (T x N) 为每位参赛者在每个可能名次上的概率分布。返回：每位参赛者的 (lower, upper) 95% 排名区间。方法：对边际分布累积并取分位数。"""
+    import numpy as np
+    T, N = prob_matrix.shape
+    cdf = np.cumsum(prob_matrix, axis=1)
+    lower = np.argmax(cdf >= alpha/2, axis=1) + 1
+    upper = np.argmax(cdf >= 1-alpha/2, axis=1) + 1
+    return list(zip(lower, upper))\\
+
+  \item \textbf{GitHub Copilot} (December 11, 2025 version, Claude Sonnet 4.5) \\
+  	extit{Query}: 我有一个 LaTeX 表格，列标题过长导致换行错乱。请给出一段 `tabularx` 的例子，能自动换行列标题并让表格居中，适用于论文中展示赛季统计的表格。\\
+  	extit{Output}: \begin{table}[ht]
+\centering
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+Contestant & Average Vote Share & Weeks Survived \\
+\hline
+Alice & 0.32 & 5 \\
+Bob & 0.27 & 3 \\
+\hline
+\end{tabularx}
+\caption{Resumen de estadísticas por concursante}
+\end{table}\\
+
+    \item \textbf{GitHub Copilot} (December 11, 2025 version, Claude Sonnet 4.5) \\
+  	extit{Query}: 在 `colorize_diagram.py` 中，绘制堆叠条形图时颜色顺序出错，导致图例与条形不对应。给出修复建议并提供一行修改代码，假设使用 `matplotlib` 的 `ax.bar`。\\
+  	extit{Output}: 问题常见于在循环里错误地重用 colormap，请确保为每个类别固定颜色数组，例如：
+colors = ['#1f77b4','#ff7f0e','#2ca02c']
+ax.bar(x, heights, color=colors[i])\\
+
+    \item \textbf{GitHub Copilot} (December 11, 2025 version, Claude Sonnet 4.5) \\
+  	extit{Query}: 我在训练模型时遇到 PyTorch 在加载 checkpoint 时提示 size mismatch。请写一个检查 checkpoint 参数形状并打印前 5 个不匹配层的诊断代码片段。\\
+  	extit{Output}: ```python
+for name, param in checkpoint['model_state'].items():
+    if name in model.state_dict():
+        if model.state_dict()[name].shape != param.shape:
+            print(name, model.state_dict()[name].shape, '!=', param.shape)
+``` 这将列出所有形状不匹配的参数，便于定位问题。\\
+
+    \item \textbf{GitHub Copilot} (December 11, 2025 version, Claude Sonnet 4.5) \\
+  	extit{Query}: `main.tex` 中参考文献出现重复编号，可能由 BibTeX 错误或重复 \verb|\cite| 引起。请给出三步排查建议（简短）。\\
+  	extit{Output}: 1) 清空辅助文件并重新运行 `latexmk -pdf`；2) 检查 `.bib` 中是否有重复条目 key；3) 确认文中引用 key 唯一且拼写一致。\\
+
+    \item \textbf{GitHub Copilot} (December 11, 2025 version, Claude Sonnet 4.5) \\
+  	extit{Query}: 在绘制预测与真实排名的比较图时，我想添加 95\% 置信带，数据是每次 bootstrap 的预测值数组。请写出使用 `seaborn` 或 `matplotlib` 绘制均值曲线及置信带的示例代码。\\
+  	extit{Output}: ```python
+import numpy as np
+mean = preds.mean(axis=0)
+lower = np.percentile(preds, 2.5, axis=0)
+upper = np.percentile(preds, 97.5, axis=0)
+plt.plot(mean)
+plt.fill_between(range(len(mean)), lower, upper, alpha=0.3)
+```\\
+
+    \item \textbf{GitHub Copilot} (December 11, 2025 version, Claude Sonnet 4.5) \\
+  	extit{Query}: 我需要把 `processed.csv` 中的时间字符串统一为 ISO 格式，提供一段 pandas 代码将 `date` 列解析并格式化为 `YYYY-MM-DD`。\\
+  	extit{Output}: ```python
+import pandas as pd
+df = pd.read_csv('processed.csv')
+df['date'] = pd.to_datetime(df['date'], errors='coerce').dt.strftime('%Y-%m-%d')
+df.to_csv('processed_normalized.csv', index=False)
+```\\
+
+    \item \textbf{GitHub Copilot} (December 11, 2025 version, Claude Sonnet 4.5) \\
+  	extit{Query}: 在 `combine_plot_temp.py` 中合并子图时，子图标签重叠。给出使用 `tight_layout()` 和 `constrained_layout` 的正确调用示例并说明区别（一句话）。\\
+  	extit{Output}: 使用 `fig, axs = plt.subplots(constrained_layout=True)` 或在绘图后调用 `plt.tight_layout()`；`constrained_layout` 在创建图时自动计算约束，`tight_layout` 在图创建后进行调整。\\
+
+    \item \textbf{GitHub Copilot} (December 11, 2025 version, Claude Sonnet 4.5) \\
+  	extit{Query}: 请为论文的“方法”部分写一段 3-4 行的中英文对照简短描述，介绍我们如何使用历史投票数据与判分数据来估计选手淘汰概率（基于 Problem C 背景，但不泄露核心模型细节）。\\
+  	extit{Output}: 我们结合历史投票与评委评分构建统计特征，使用可解释的概率模型估计每位选手在给定周的生存概率；随后通过重抽样评估不确定性并进行模型诊断。 / We combine historical vote counts and judge scores into statistical features, fit an interpretable probabilistic model to estimate each contestant's weekly survival probability, and use resampling to quantify uncertainty and validate model calibration.\\
+
+    \item \textbf{Google gemini} (November 18, 2025 version, Gemini 3 pro) \\
+  	extit{Query}: 我在 LaTeX 中要插入一张多列宽度的图（跨两列），请提供 `figure*` 的最小示例并确保图片可浮动且带中文说明。\\
+  	extit{Output}: \begin{figure*}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/overview.png}
+\caption{跨栏图示：比赛排名随时间变化示意图}
+\end{figure*}\\
+
+    \item \textbf{Google gemini} (November 18, 2025 version, Gemini 3 pro) \\
+  	extit{Query}: 给出一段 LaTeX 代码，用 `siunitx` 包格式化表格中所有概率为百分比并保留两位小数的写法（示例单元格）。\\
+  	extit{Output}: 在导言区加入 `\usepackage{siunitx}`，表格中使用 `S[table-format=2.2]`：\begin{tabular}{l S[table-format=2.2]}
+Contestant & {Survival (\%)} \\
+Alice & 32.45 \\
+\end{tabular}\\
+
+    \item \textbf{Google gemini} (November 18, 2025 version, Gemini 3 pro) \\
+  	extit{Query}: 我想在论文附录中展示模型参数的估计稳定性，请写一段说明如何用 `pandas` 生成参数估计表格并导出为 LaTeX。\\
+  	extit{Output}: ```python
+import pandas as pd
+params = pd.DataFrame({'param':names,'mean':means,'std':stds})
+print(params.to_latex(index=False))
+``` 将 `to_latex` 输出粘贴到附录即可。\\
+
+    \item \textbf{Google gemini} (November 18, 2025 version, Gemini 3 pro) \\
+  	extit{Query}: 我需要把 `q1_model_results.csv` 中的排名列从 0-based 转为 1-based，并保存覆盖原文件。给出命令行一行的 `python -c` 示例。\\
+  	extit{Output}: ```bash
+python -c "import pandas as pd;df=pd.read_csv('q1_model_results.csv');df['rank']=df['rank']+1;df.to_csv('q1_model_results.csv',index=False)"
+```\\
+
+    \item \textbf{Google gemini} (November 18, 2025 version, Gemini 3 pro) \\
+  	extit{Query}: 在 `main.ipynb` 的一个单元中，生成一张包含 top-10 和 bottom-10 不确定性对比的条形图。请给出 notebook 可运行的 matplotlib/snippet（假设有两个列表）。\\
+  	extit{Output}: ```python
+plt.barh(range(10), top10_uncertainty)
+plt.yticks(range(10), top10_names)
+plt.gca().invert_yaxis()
+plt.title('Top10 uncertainty')
+```\\
+
+    \item \textbf{Anthropic claude code} (September 29, 2025 version, Claude Opus 4.5) \\
+  	extit{Query}: 我在训练过程中希望记录每个 epoch 的 AUC 与 loss，并保存为 `metrics.json`，给出训练循环中记录并在完成后写入文件的最小代码片段。\\
+  	extit{Output}: ```python
+metrics=[]
+for epoch in range(E):
+    # train/val steps
+    metrics.append({'epoch':epoch,'auc':auc,'loss':loss})
+import json
+with open('metrics.json','w') as f:
+    json.dump(metrics,f,indent=2)
+```\\
+
+    \item \textbf{Anthropic claude code} (September 29, 2025 version, Claude Opus 4.5) \\
+  	extit{Query}: 请给出一个 pytest 测试示例，用于测试 `compute_rank_ci` 在给定简单概率矩阵下返回正确的区间（示例小矩阵）。\\
+  	extit{Output}: ```python
+def test_compute_rank_ci():
+    import numpy as np
+    probs = np.array([[1.0,0.0,0.0],[0.0,1.0,0.0]]).T
+    cis = compute_rank_ci(probs)
+    assert cis[0]==(1,1)
+```\\
+
+    \item \textbf{Anthropic claude code} (September 29, 2025 version, Claude Opus 4.5) \\
+  	extit{Query}: 帮我把论文中一句中文说明翻译成正式学术英语："我们用引导法评估模型不确定性"。\\
+  	extit{Output}: "We assess model uncertainty using bootstrap resampling."\\
+
+    \item \textbf{Anthropic claude code} (September 29, 2025 version, Claude Opus 4.5) \\
+  	extit{Query}: 我希望在 `README.md` 中加入快速运行说明：如何安装依赖并运行示例脚本。请写出三行命令（macOS）。\\
+  	extit{Output}: ```bash
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+python main.py --example
+```\\
+
+    \item \textbf{OpenAI ChatGPT} (December 11, 2025 version, ChatGPT-5.2) \\
+  	extit{Query}: 请根据 Problem C 的背景，提出 3 条可行的数据质量检查（data QA）建议，简短列点。\\
+  	extit{Output}: 1) 检查每周投票总数与历史均值偏离是否异常；2) 验证选手标识的唯一性并检测拼写变体；3) 确认缺失评分/票数的记录并按周汇总报告缺失率。\\
+
+    \item \textbf{OpenAI ChatGPT} (December 11, 2025 version, ChatGPT-5.2) \\
+  	extit{Query}: 论文的致谢段需要一句话感谢数据提供者与导师，帮写一句简短英文致谢。\\
+  	extit{Output}: We thank the data providers for access to historical contest records and our advisors for valuable feedback during the development of this work.\\
+
+    \item \textbf{OpenAI ChatGPT} (December 11, 2025 version, ChatGPT-5.2) \\
+  	extit{Query}: 请根据 Problem C 提供一段用于保存图像并避免覆盖的 Python 函数 `savefig_ts(fig, path)`。\\
+  	extit{Output}: ```python
+from datetime import datetime
+def savefig_ts(fig, path):
+    ts = datetime.now().strftime('%Y%m%d_%H%M%S')
+    fig.savefig(f"{path.rstrip('.png')}_{ts}.png")
+```\\
+
+    \item \textbf{Google gemini} (November 18, 2025 version, Gemini 3 pro) \\
+  	extit{Query}: 在论文中引用数据集时，如何在 Methods 段落里简短说明数据获取与许可（两句话中文）？\\
+  	extit{Output}: 数据来自公开/许可的历史比赛记录，按周汇总并经去标识化处理以保护个人信息。数据使用遵循提供方的许可协议并仅用于本研究目的。\\
+
+    \item \textbf{Anthropic claude code} (September 29, 2025 version, Claude Opus 4.5) \\
+  	extit{Query}: 当模型输出概率不收敛到 0/1 时，我想做概率校准（calibration），请简要说明使用 Platt scaling 的步骤（3 步）。\\
+  	extit{Output}: 1) 在验证集上收集模型预测概率及真实标签；2) 用逻辑回归拟合预测概率到真是标签（Platt scaling）；3) 将训练好的校准器应用于测试集中预测概率以获得校准后的概率。\\
+
+    \item \textbf{Google gemini} (November 18, 2025 version, Gemini 3 pro) \\
+  	extit{Query}: 论文图注需要包含统计检验简要結果（例如 p 值）。请举例一句话图注，说明两组不确定性差异的 t 检验结果（示例 p 值）。\\
+  	extit{Output}: "Comparison of uncertainty between groups A and B; mean difference = 0.12 (t(58)=2.34, p=0.023)."\\
+\end{enumerate}
+    \item \textbf{Anthropic claude code} (September 29, 2025 version, Claude Opus 4.5) \\
+  \textit{Query}: \textless insert the exact wording of your query\textgreater \\
+  \textit{Output}: \textless insert the complete output from the AI tool\textgreater
+
+    \item \textbf{Anthropic claude code} (September 29, 2025 version, Claude Opus 4.5) \\
+  \textit{Query}: \textless insert the exact wording of your query\textgreater \\
+  \textit{Output}: \textless insert the complete output from the AI tool\textgreater
+
+    \item \textbf{Anthropic claude code} (September 29, 2025 version, Claude Opus 4.5) \\
+  \textit{Query}: \textless insert the exact wording of your query\textgreater \\
+  \textit{Output}: \textless insert the complete output from the AI tool\textgreater
+\end{enumerate} 

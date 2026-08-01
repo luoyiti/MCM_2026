@@ -1,0 +1,35 @@
+season,rule_type,actual_1,actual_2,actual_3,pred_1,pred_2,pred_3,winner_correct,top3_set_correct,top3_order_correct
+1,R1_Rank,Kelly Monaco,John O'Hurley,Joey McIntyre,Rachel Hunter,Trista Sutter,Kelly Monaco,0,0,0
+2,R1_Rank,Drew Lachey,Jerry Rice,Stacy Keibler,Drew Lachey,Stacy Keibler,Giselle Fernandez,1,0,0
+3,R2_Percent,Emmitt Smith,Mario Lopez,Joey Lawrence,Mario Lopez,Emmitt Smith,Sara Evans,0,0,0
+4,R2_Percent,Apolo Anton Ohno,Joey Fatone,Laila Ali,Apolo Anton Ohno,Joey Fatone,Laila Ali,1,1,1
+5,R2_Percent,Helio Castroneves,Mel B,Marie Osmond,Mel B,Helio Castroneves,Marie Osmond,0,1,0
+6,R2_Percent,Kristi Yamaguchi,Jason Taylor,Cristian de la Fuente,Jason Taylor,Kristi Yamaguchi,Cristian de la Fuente,0,1,0
+7,R2_Percent,Brooke Burke,Warren Sapp,Lance Bass,Brooke Burke,Warren Sapp,Lance Bass,1,1,1
+8,R2_Percent,Shawn Johnson,Gilles Marini,Melissa Rycroft,Shawn Johnson,Melissa Rycroft,Gilles Marini,1,1,0
+9,R2_Percent,Donny Osmond,Mya,Kelly Osbourne,Donny Osmond,Mya,Kelly Osbourne,1,1,1
+10,R2_Percent,Nicole Scherzinger,Evan Lysacek,Erin Andrews,Nicole Scherzinger,Erin Andrews,Evan Lysacek,1,1,0
+11,R2_Percent,Jennifer Grey,Kyle Massey,Bristol Palin,Jennifer Grey,Bristol Palin,Kyle Massey,1,1,0
+12,R2_Percent,Hines Ward,Kirstie Alley,Chelsea Kane,Hines Ward,Kirstie Alley,Chelsea Kane,1,1,1
+13,R2_Percent,J.R. Martinez,Rob Kardashian,Ricki Lake,J.R. Martinez,Rob Kardashian,Ricki Lake,1,1,1
+14,R2_Percent,Donald Driver,Katherine Jenkins,William Levy,Katherine Jenkins,Donald Driver,William Levy,0,1,0
+15,R2_Percent,Melissa Rycroft,Shawn Johnson,Kelly Monaco,Kelly Monaco,Melissa Rycroft,Shawn Johnson,0,1,0
+16,R2_Percent,Kellie Pickler,Zendaya,Jacoby Jones,Zendaya,Kellie Pickler,Jacoby Jones,0,1,0
+17,R2_Percent,Amber Riley,Corbin Bleu,Jack Osbourne,Amber Riley,Bill Engvall,Corbin Bleu,1,0,0
+18,R2_Percent,Meryl Davis,Amy Purdy,Candace Cameron Bure,Meryl Davis,James Maslow,Amy Purdy,1,0,0
+19,R2_Percent,Alfonso Ribeiro,Sadie Robertson,Janel Parrish,Sadie Robertson,Alfonso Ribeiro,Bethany Mota,0,0,0
+20,R2_Percent,Rumer Willis,Riker Lynch,Noah Galloway,Rumer Willis,Riker Lynch,Noah Galloway,1,1,1
+21,R2_Percent,Bindi Irwin,Nick Carter,Alek Skarlatos,Alek Skarlatos,Carlos PenaVega,Bindi Irwin,0,0,0
+22,R2_Percent,Nyle DiMarco,Paige VanZant,Ginger Zee,Paige VanZant,Nyle DiMarco,Ginger Zee,0,1,0
+23,R2_Percent,Laurie Hernandez,James Hinchcliffe,Calvin Johnson Jr.,James Hinchcliffe,Calvin Johnson Jr.,Laurie Hernandez,0,1,0
+24,R2_Percent,Rashad Jennings,David Ross,Normani,David Ross,Rashad Jennings,Normani,0,1,0
+25,R2_Percent,Jordan Fisher,Lindsey Stirling,Frankie Muniz,Drew Scott,Lindsey Stirling,Frankie Muniz,0,0,0
+26,R2_Percent,Adam Rippon,Josh Norman,Tonya Harding,Tonya Harding,Josh Norman,Adam Rippon,0,1,0
+27,R2_Percent,Bobby Bones,Milo Manheim,Evanna Lynch,Bobby Bones,Milo Manheim,Alexis Ren,1,0,0
+28,R3_Bottom2,Hannah Brown,Kel Mitchell,Ally Brooke,Ally Brooke,Kel Mitchell,Hannah Brown,0,1,0
+29,R3_Bottom2,Kaitlyn Bristowe,Nev Schulman,Nelly,Justina Machado,Nev Schulman,Chrishell Stause,0,0,0
+30,R3_Bottom2,Iman Shumpert,JoJo Siwa,Cody Rigsby,JoJo Siwa,Amanda Kloots,Melanie C,0,0,0
+31,R3_Bottom2,Charli D'Amelio,Gabby Windey,Wayne Brady,Charli D'Amelio,Gabby Windey,Wayne Brady,1,1,1
+32,R3_Bottom2,Xochitl Gomez,Jason Mraz,Ariana Madix,Jason Mraz,Ariana Madix,Xochitl Gomez,0,1,0
+33,R3_Bottom2,Joey Graziadei,Ilona Maher,Chandler Kinney,Joey Graziadei,Chandler Kinney,Stephen Nedoroscik,1,0,0
+34,R3_Bottom2,Robert Irwin,Alix Earle,Jordan Chiles,Dylan Efron,Jordan Chiles,Alix Earle,0,0,0

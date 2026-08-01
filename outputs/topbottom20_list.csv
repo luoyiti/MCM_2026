@@ -1,0 +1,21 @@
+celebrity_name,overall_mean_W,group,n_weeks
+Mario Lopez,0.0859916855580295,MostUncertain,10
+Jason Taylor,0.08254897644450117,MostUncertain,10
+Brooke Burke,0.07862215965554989,MostUncertain,10
+Evan Lysacek,0.07834405466279123,MostUncertain,10
+Kristi Yamaguchi,0.07741505686056113,MostUncertain,10
+Shawn Johnson,0.07563078050887789,MostUncertain,11
+Riker Lynch,0.07523726211826645,MostUncertain,10
+Erin Andrews,0.07462282998545065,MostUncertain,10
+Cristian de la Fuente,0.07427474437189564,MostUncertain,10
+Rob Kardashian,0.07359576662487444,MostUncertain,10
+Robert Irwin,0.0066430596334840185,LeastUncertain,11
+Lele Pons,0.006641931758310157,LeastUncertain,7
+Jordan Chiles,0.006608846558800891,LeastUncertain,11
+Olivia Jade,0.006608346482777951,LeastUncertain,8
+Suni Lee,0.006426180943450866,LeastUncertain,9
+Trevor Donovan,0.00611861852813159,LeastUncertain,9
+Johnny Weir,0.00583275411726759,LeastUncertain,10
+Heidi D'Amelio,0.00568326264417545,LeastUncertain,8
+Selma Blair,0.00449607120991302,LeastUncertain,5
+Jeannie Mai,0.004171345118467157,LeastUncertain,7
